@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+
+  response-checker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: response-checker
+    volumes:
+      - ./logs:/logs
